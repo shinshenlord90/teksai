@@ -67,3 +67,9 @@ packaging/teksai/
   usr/share/...      fail .desktop dan ikon
 dist/                pakej .deb siap
 ```
+
+## Lesen
+
+Kod TeksAI dilesenkan di bawah [lesen MIT](LICENSE).
+
+Peraturan humanizer dalam `packaging/teksai/opt/teksai/humanizer/` datang dari [blader/humanizer](https://github.com/blader/humanizer) dan kekal di bawah lesen MIT asalnya (lihat `LICENSE` dalam folder itu).
