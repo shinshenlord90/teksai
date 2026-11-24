@@ -1,0 +1,10 @@
+TeksAI 1.0.0: Pengesan AI & Humanizer
+
+Lancar: menu aplikasi > TeksAI, atau `teksai` di terminal.
+CLI:    teksai detect fail.txt
+        teksai humanize fail.txt
+Enjin GPT-2 (pilihan): sudo teksai --install-gpt2
+Humanizer perlukan kunci API Anthropic (tab Tetapan, atau ANTHROPIC_API_KEY).
+
+Peraturan humanizer: /opt/teksai/humanizer/SKILL.md
+  Sumber: https://github.com/blader/humanizer (lesen MIT, lihat /opt/teksai/humanizer/LICENSE)

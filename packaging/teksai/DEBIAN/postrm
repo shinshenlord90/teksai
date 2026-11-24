@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
+  rm -rf /opt/teksai/venv
+  find /opt/teksai -name __pycache__ -type d -exec rm -rf {} + 2>/dev/null || true
+  rmdir --ignore-fail-on-non-empty /opt/teksai/teksai /opt/teksai 2>/dev/null || true
+fi
+exit 0

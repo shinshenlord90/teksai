@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=TeksAI
+GenericName=Pengesan AI & Humanizer
+Comment=Semak sama ada teks ditulis AI dan tulis semula supaya lebih semula jadi
+Exec=teksai
+Icon=teksai
+Terminal=false
+Categories=Office;TextTools;Utility;
+Keywords=AI;detector;humanizer;GPT;teks;

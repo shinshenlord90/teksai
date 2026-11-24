@@ -1,0 +1,13 @@
+Package: teksai
+Version: 1.0.0
+Section: text
+Priority: optional
+Architecture: all
+Depends: python3 (>= 3.10), python3-venv, python3-tk, python3-pip
+Recommends: zenity, policykit-1 | pkexec
+Maintainer: TeksAI <teksai@localhost>
+Description: Pengesan teks AI dan humanizer (desktop)
+ TeksAI menyemak sama ada teks berkemungkinan dijana AI menggunakan
+ enjin lokal (heuristik, atau GPT-2 perplexity jika dipasang), dan menulis
+ semula teks menggunakan peraturan blader/humanizer (MIT) melalui Claude API
+ dengan kunci API pengguna sendiri.

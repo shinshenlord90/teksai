@@ -1,0 +1,8 @@
+#!/bin/sh
+VENV=/opt/teksai/venv
+if [ ! -x "$VENV/bin/python3" ]; then
+  echo "TeksAI: venv tiada. Jalankan: sudo dpkg-reconfigure teksai" >&2
+  command -v zenity >/dev/null && zenity --error --text="Persekitaran Python TeksAI belum dipasang.\nJalankan: sudo dpkg-reconfigure teksai" 2>/dev/null
+  exit 1
+fi
+cd /opt/teksai && exec "$VENV/bin/python3" -m teksai "$@"

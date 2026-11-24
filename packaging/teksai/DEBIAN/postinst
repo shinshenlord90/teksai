@@ -1,0 +1,30 @@
+#!/bin/sh
+set -e
+case "$1" in configure|reconfigure)
+  VENV=/opt/teksai/venv
+  # Use a Python that has tkinter (normally the distro python3).
+  if [ -x "$VENV/bin/python3" ] && ! "$VENV/bin/python3" -c "import tkinter" 2>/dev/null; then
+    rm -rf "$VENV"
+  fi
+  if [ ! -x "$VENV/bin/python3" ]; then
+    PY=""
+    for c in /usr/bin/python3 /usr/bin/python3.14 /usr/bin/python3.13 /usr/bin/python3.12 /usr/bin/python3.11 /usr/bin/python3.10; do
+      if [ -x "$c" ] && "$c" -c "import tkinter, venv" 2>/dev/null; then PY="$c"; break; fi
+    done
+    if [ -z "$PY" ]; then
+      echo "TeksAI: RALAT: tiada Python dengan tkinter. Pasang python3-tk." >&2
+      exit 1
+    fi
+    "$PY" -m venv "$VENV"
+  fi
+  echo "TeksAI: memasang pakej Python (anthropic) ke $VENV ..."
+  if ! "$VENV/bin/pip" install --quiet --disable-pip-version-check "anthropic>=0.80"; then
+    echo "TeksAI: AMARAN: gagal memasang 'anthropic' (tiada internet?)." >&2
+    echo "        Pengesan tetap berfungsi. Untuk Humanizer, jalankan kemudian:" >&2
+    echo "        sudo dpkg-reconfigure teksai" >&2
+  fi
+  command -v update-desktop-database >/dev/null && update-desktop-database -q || true
+  command -v gtk-update-icon-cache >/dev/null && gtk-update-icon-cache -q -f /usr/share/icons/hicolor || true
+  ;;
+esac
+exit 0
